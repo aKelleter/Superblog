@@ -27,7 +27,7 @@ function displayNavigation(){
  * @param string $title 
  * @return void 
  */
-function displayHeadSection($title = ''){
+function displayHeadSection($title = APP_NAME){
 
     $head = '
         <meta charset="UTF-8">
