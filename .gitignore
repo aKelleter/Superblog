@@ -1,2 +1,3 @@
 .DS_Store
 _src/fil-conducteur-superblog.pages
+conf/conf-db.php
