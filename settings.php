@@ -8,12 +8,12 @@
     
     // Constantes de l'application
     const APP_NAME = "Superblog";
-    const APP_VERSION = 'v0.0.1';
-    const APP_UPDATED = '13-12-2023 16:45';
+    const APP_VERSION = 'v0.0.2';
+    const APP_UPDATED = '13-12-2023 16:30';
     const APP_AUTHOR = 'Vous :)';
 
     // Constante d'activation/désactivation du mode DEBUG
-    const DEBUG = true;
+    const DEBUG = false;
 
     // Charge les credentials de connexion à la DB
     require_once('conf/conf-db.php');

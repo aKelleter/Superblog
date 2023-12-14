@@ -43,3 +43,11 @@ function displayHeadSection($title = ''){
     echo $head;
 }
 
+function displayArticles($articles) {
+    foreach ($articles as $article) {
+        echo '<p><a href="article.php?id='.$article['id'].'">' . $article['title'] . '</a></p>';
+        echo '<hr>';
+    }
+
+}
+
