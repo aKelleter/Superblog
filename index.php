@@ -2,17 +2,22 @@
     require_once('settings.php');
     
     $msg = null;
+    $articlesList = null;
+    $execute = false;
 
     // On vérifie l'objet de connexion $conn
     if(!is_object($conn)){
         //die($conn);
         $msg = '<div class="msg-error"><p>'.$conn.'</p></div>';
-    }else
-        // Retourne les articles publiés
-        $articlesList = getAllArticlesDB($conn, 1);
+    }else{
+         
+        // Va cherche en DB les articles publiés
+         $articlesList = getAllArticlesDB($conn, 1);
 
-
-
+         // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
+         (isset($articlesList) && is_array($articlesList))? $execute = true : $msg = '<div class="msg-error"><p>'.$articlesList.'</p></div>';            
+    }
+   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +51,9 @@
                 -->
                 <?php 
                     // disp_ar($articlesList); 
-                    displayArticles($articlesList);
+                    // Que l'on peut exécuter cette instruction                   
+                    if($execute)
+                        displayArticles($articlesList);
                 ?>
             </div>  
             <footer>                

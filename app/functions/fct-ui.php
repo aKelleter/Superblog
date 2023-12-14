@@ -68,3 +68,18 @@ function displayArticles($articles) {
 function displayFooter($app_name = APP_NAME, $app_version = APP_VERSION, $app_update = APP_UPDATED, $app_author = APP_AUTHOR) {
     echo"<p>$app_name - $app_version -$app_update by $app_author<p>";
 }
+
+/**
+ * Affiche l'article reçu en paramètre
+ * 
+ * @param mixed $article 
+ * @return void 
+ */
+function displayArticle($article) {
+    echo '<article>';
+    echo '<h2 class="appMainColor">' . $article['title'] . '</h2>';
+    echo '<hr>';
+    echo '<p>' . html_entity_decode($article['content']) . '</p>';
+    echo '</article>';
+}
+

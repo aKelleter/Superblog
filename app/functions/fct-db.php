@@ -55,8 +55,8 @@ function getAllArticlesDB($conn, $active = '%') {
         return $resultat;
 
     } catch (PDOException $e) {
-        (DEBUG)? $errocode = 'Error : ' . $e->getMessage() : $errorcode = 300;            
-        return $errorcode; 
+        (DEBUG)? $st = 'Error : ' . $e->getMessage() : $st = "Error in : getAllArticlesDB() function";            
+        return $st;  
     }
 }
 
@@ -83,8 +83,8 @@ function getArticleByIDDB($conn, $id) {
         return $resultat;
 
     } catch (PDOException $e) {
-        (DEBUG)? $errocode = 'Error : ' . $e->getMessage() : $errorcode = 300;            
-        return $errorcode;
+        (DEBUG)? $st = 'Error : ' . $e->getMessage() : $st = "Error in : getArticleByIDDB() function";            
+        return $st;  
     }
 }
 
@@ -120,8 +120,8 @@ function addArticleDB($conn, $datas) {
         return true;
 
     }catch(PDOException $e) {
-        (DEBUG)? $errocode = 'Error : ' . $e->getMessage() : $errorcode = 300;            
-        return $errorcode;      
+        (DEBUG)? $st = 'Error : ' . $e->getMessage() : $st = "Error in : addArticleDB() function";            
+        return $st;  
     }       
 }
 
@@ -165,8 +165,8 @@ function updateArticleDB($conn, $datas) {
         return true;
 
     }catch(PDOException $e) {
-        (DEBUG)? $errocode = 'Error : ' . $e->getMessage() : $errorcode = 300;            
-        return $errorcode;
+        (DEBUG)? $st = 'Error : ' . $e->getMessage() : $st = "Error in : updateArticleDB() function";            
+        return $st;  
     } 
 }   
 
@@ -193,8 +193,8 @@ function deleteArticleDB($conn, $id) {
         return true;
 
     }catch(PDOException $e) {
-        (DEBUG)? $errocode = 'Error : ' . $e->getMessage() : $errorcode = 300;            
-        return $errorcode;   
+        (DEBUG)? $st = 'Error : ' . $e->getMessage() : $st = "Error in : deleteArticleDB() function";            
+        return $st;     
     }       
 
 }   
@@ -234,8 +234,8 @@ function userIdentificationDB($conn, $datas) {
         
 
     }catch(PDOException $e) {
-        (DEBUG)? $errocode = 'Error : ' . $e->getMessage() : $errorcode = 300;            
-        return $errorcode;      
+        (DEBUG)? $st = 'Error : ' . $e->getMessage() : $st = "Error in : userIdentificationDB() function";            
+        return $st;      
     }       
 }
 

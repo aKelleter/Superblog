@@ -104,4 +104,32 @@ article a:hover{
       border-top-color: currentcolor;
     border-top: var(--border-width) solid;
     opacity: .25;
-  }
+ }
+
+ 
+ .circle-published {
+    display: inline-block;
+    background: var(--a-color);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    shape-outside: circle();
+    clip-path: circle();  
+    border: 1px solid black;
+    margin-right: 5px;
+    vertical-align: middle;
+
+}
+
+.circle-not-published {
+    display: inline-block;
+    background: var(--danger-color);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;  
+    shape-outside: circle();
+    clip-path: circle();
+    border: 1px solid black;
+    margin-right: 5px;
+    vertical-align: middle;
+}
