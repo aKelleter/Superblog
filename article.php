@@ -25,7 +25,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php displayHeadSection('***Titre de l\'article***'); ?>
+    <?php displayHeadSection($article['title']); ?>
 </head>
 <body>
     <div class="container">
