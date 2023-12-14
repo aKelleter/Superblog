@@ -26,7 +26,7 @@
         return $conn;
 
     } catch (PDOException $e) {
-        (DEBUG)? $st = 'Error : ' . $e->getMessage() : $st = false;            
+        (DEBUG)? $st = 'Error : ' . $e->getMessage() : $st = "Error : Database connexion";            
         return $st; 
     }
 }

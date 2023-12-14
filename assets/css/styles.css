@@ -4,6 +4,7 @@
     --body-backg-color: rgb(246, 254, 255);
     --menu-item: rgb(15, 125, 235);
     --menu-item-hover: rgb(12, 72, 132);
+    --text-error: rgb(217, 12, 12);
 }
 
 body{
@@ -72,4 +73,13 @@ footer{
 
  #content{
     display: block;
+ }
+
+ .msg-error{
+    margin: auto;
+    text-align: center;
+    color: var(--text-error);
+    border: 1px solid var(--text-error);
+    border-radius: 5px;
+    width: 80%;
  }
