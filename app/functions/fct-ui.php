@@ -51,7 +51,7 @@ function displayHeadSection($title = APP_NAME){
  */
 function displayArticles($articles) {
     foreach ($articles as $article) {
-        echo '<article><h2><a href="article.php?id='.$article['id'].'">' . $article['title'] . '</a></h2></article>';
+        echo '<article><a href="article.php?id='.$article['id'].'" title="Lire l\'article"><h2 class="article-item">' . $article['title'] . '</h2></a></article>';
         echo '<hr>';
     }
 }
@@ -75,9 +75,9 @@ function displayFooter($app_name = APP_NAME, $app_version = APP_VERSION, $app_up
  * @param mixed $article 
  * @return void 
  */
-function displayArticle($article) {
+function displayArticleByID($article) {
     echo '<article>';
-    echo '<h2 class="appMainColor">' . $article['title'] . '</h2>';
+    echo '<h2 class="">' . $article['title'] . '</h2>';
     echo '<hr>';
     echo '<p>' . html_entity_decode($article['content']) . '</p>';
     echo '</article>';

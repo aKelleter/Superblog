@@ -44,7 +44,7 @@
                       Vous devez créer une fonction d'affichage pour afficher l'article:
                       Son titre et son contenu
                 -->
-                <?php displayArticle($article); ?>
+                <?php displayArticleByID($article); ?>
                                 
             </div>  
             <footer>

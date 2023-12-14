@@ -22,15 +22,25 @@ footer {
     font-size: 0.9rem;
 }
 
+h2{
+    color: var(--menu-item);
+}
+
 article a{
     text-decoration: none;
     color: var(--menu-item);
 }
 
-article a:hover{
-     color: var(--menu-item-hover);
+.article-item{
+    padding: 10px;  
 }
- 
+
+.article-item:hover{
+    background-color: var(--menu-item);
+    color: var(--body-backg-color);
+    border-radius: 5px; 
+}
+
 .container{   
     margin: 0 1rem 0 1rem;
 }
