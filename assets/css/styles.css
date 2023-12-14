@@ -5,22 +5,33 @@
     --menu-item: rgb(15, 125, 235);
     --menu-item-hover: rgb(12, 72, 132);
     --text-error: rgb(217, 12, 12);
+
+    --border-width: 1px;
 }
 
 body{
   font-family: "Exo 2", sans-serif;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   background-color: var(--body-backg-color);
   color: var(--body-color)
 }
 
-footer{
+footer {
+    margin-top: 3rem;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 0.9rem;
 }
 
-.container{
-    width: 100%;
+article a{
+    text-decoration: none;
+    color: var(--menu-item);
+}
+
+article a:hover{
+     color: var(--menu-item-hover);
+}
+ 
+.container{   
     margin: 0 1rem 0 1rem;
 }
 
@@ -83,3 +94,14 @@ footer{
     border-radius: 5px;
     width: 80%;
  }
+ 
+ hr {
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+      border-top-width: 0px;
+      border-top-style: none;
+      border-top-color: currentcolor;
+    border-top: var(--border-width) solid;
+    opacity: .25;
+  }

@@ -43,11 +43,28 @@ function displayHeadSection($title = ''){
     echo $head;
 }
 
+/**
+ * Affichage des articles 
+ * 
+ * @param mixed $articles 
+ * @return void 
+ */
 function displayArticles($articles) {
     foreach ($articles as $article) {
-        echo '<p><a href="article.php?id='.$article['id'].'">' . $article['title'] . '</a></p>';
+        echo '<article><h2><a href="article.php?id='.$article['id'].'">' . $article['title'] . '</a></h2></article>';
         echo '<hr>';
     }
-
 }
 
+/**
+ * Affichage du footer
+ * 
+ * @param string $app_name 
+ * @param string $app_version 
+ * @param string $app_update 
+ * @param string $app_author 
+ * @return void 
+ */
+function displayFooter($app_name = APP_NAME, $app_version = APP_VERSION, $app_update = APP_UPDATED, $app_author = APP_AUTHOR) {
+    echo"<p>$app_name - $app_version -$app_update by $app_author<p>";
+}

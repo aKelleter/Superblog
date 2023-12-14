@@ -59,7 +59,8 @@
                 <!-- Exemple en HTML du footer, vous, vous devez créer une fonction qui va afficher
                      les données de la DB. SUPPRIMEZ L'EXEMPLE.
                 -->
-                <p>Superblog - v0.0.1 - 13-12-2023 16:45 by Vous<p>
+                <!--<p>Superblog - v0.0.1 - 13-12-2023 16:45 by Vous<p>-->
+                <?php displayFooter(); ?>
             </footer>     
         </div>
     </div>    
