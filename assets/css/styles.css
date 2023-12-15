@@ -186,12 +186,7 @@ article a {
  
  hr {
     margin: 1rem 0;
-    color: inherit;
-    border: 0;
-      border-top-width: 0px;
-      border-top-style: none;
-      border-top-color: currentcolor;
-    border-top: var(--border-width) solid;
+    border: var(--border-width) solid var(--menu-item-color);
     opacity: .25;
  }
 
