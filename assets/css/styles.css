@@ -2,16 +2,18 @@
 
 :root{
     --body-backg-color: rgb(246, 254, 255);
+    --header-backg-color: rgb(217, 244, 253);
     --menu-item-color: rgb(15, 125, 235);
     --menu-item-color-hover: rgb(12, 72, 132);
     --danger-color: rgb(217, 12, 12);
+    --danger-color-hover: rgb(147, 13, 13);
     --link-color: rgb(1, 125, 248);
     --published-color: rgb(74, 192, 41);
 
     --border-width: 1px;
 }
 
-body{
+body {
   font-family: "Exo 2", sans-serif;
   font-size: 1.1rem;
   background-color: var(--body-backg-color);
@@ -24,35 +26,74 @@ footer {
     font-size: 0.9rem;
 }
 
-h2{
+h2 {
     color: var(--menu-item-color);
 }
 
-article a{
+h2.title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+article a {
     text-decoration: none;
     color: var(--menu-item-color);
 }
 
-.article-item{
+.article-item {
     padding: 10px;  
 }
 
-.article-item:hover{
+.article-item:hover {
     background-color: var(--menu-item-color);
     color: var(--body-backg-color);
     border-radius: 5px; 
 }
 
-.container{   
+.container {   
     margin: 0 1rem 0 1rem;
 }
 
+.btn-manager {
+    font-size: 0.7rem;
+    background-color: var(--menu-item-color);
+    color: var(--body-backg-color);
+    border: 1px solid var(--menu-item-color);
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;    
+    font-weight: bold;
+}
+
+.btn-manager:hover {
+    background-color: var(--menu-item-color-hover);
+    color: var(--body-backg-color);
+    border: 1px solid var(--menu-item-color-hover);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--body-backg-color);
+    border: 1px solid var(--danger-color);
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-color-hover);
+    color: var(--body-backg-color);
+    border: 1px solid var(--danger-color-hover);
+}
+
 #header-logo {
+    color: var(--menu-item-color);
+    border: 1px solid var(--menu-item-color);
+    background-color: var(--header-backg-color);
+    border-radius: 5px;
     text-align: center;
-    display: block;
+    max-width: 50%;    
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
+    margin-top: 0.8rem;
 }
 
 #main-menu {
@@ -61,20 +102,20 @@ article a{
     text-align: center;
 }
 
-#main-menu ul{        
+#main-menu ul {        
     list-style-type: none; 
 }
 
-#main-menu ul li{
+#main-menu ul li {
     display: inline;    
     margin: 0 !important;   
 }
 
 
-.menu{
+.menu {
     list-style-type: none;   
     padding-left: 0; 
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .menu a {
@@ -94,13 +135,13 @@ article a{
     font-weight: 500;
  }
 
- #content{
+ #content {
     display: block;
     width: 90%;
     margin: auto;
  }
 
- .msg-error{
+ .msg-error {
     margin: auto;
     text-align: center;
     color: var(--danger-color);

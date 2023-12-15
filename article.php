@@ -6,17 +6,26 @@
      */
 
     $msg = null;
-    $article = null;
+    $result = null;
+    $execute = false;
 
     if(isset($_GET['id']) && !empty($_GET['id'])){
 
         // On récupère l'ID de l'article passé en paramètre
         $id = $_GET['id'];
 
-        // Récupérer l'article spécifié par l'ID
-        $article = getArticleByIDDB($conn, $id);
+        // On vérifie l'objet de connexion $conn
+        if(!is_object($conn)){            
+            $msg = '<div class="msg-error"><p>'.$conn.'</p></div>';
+        }else{
+            
+             // Récupérer l'article spécifié par l'ID
+            $result = getArticleByIDDB($conn, $id);
 
-        //DEBUG// disp_ar($article, 'STATUS', 'VD');
+            // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
+            (isset($result) && is_array($result) && !empty($result))? $execute = true : $msg = '<div class="msg-error"><p>Il n\'y a pas d\'article à afficher</p></div>';            
+        }       
+        
     }else{
         $msg = '<div class="alert alert-danger text-center" role="alert">Il n\'y a pas d\'article à afficher</div>';
     }    
@@ -25,7 +34,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php displayHeadSection($article['title']); ?>
+    <?php displayHeadSection((isset($result['title'])?$result['title']:APP_NAME)); ?>
 </head>
 <body>
     <div class="container">
@@ -44,7 +53,12 @@
                       Vous devez créer une fonction d'affichage pour afficher l'article:
                       Son titre et son contenu
                 -->
-                <?php displayArticleByID($article); ?>
+                
+                <?php 
+                   // Peut-on exécuter cette instruction
+                   if($execute)
+                       displayArticleByID($result); 
+                ?>
                                 
             </div>  
             <footer>

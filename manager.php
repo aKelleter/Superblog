@@ -5,6 +5,25 @@
      * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
      */
 
+    // On vérifie l'objet de connexion $conn
+    if(!is_object($conn)){            
+        $msg = '<div class="msg-error"><p>'.$conn.'</p></div>';
+    }else{
+        
+        // Vérifie si on supprime un article
+        if((isset($_GET['id']) && !empty($_GET['id'])) && 
+            (isset($_GET['action']) && !empty($_GET['action'])) && $_GET['action'] == 'deleteArticle')
+        {
+            $id = $_GET['id'];
+            $status = deleteArticleDB($conn, $id);       
+        }    
+        
+        // Récupérer tous les articles de la table articles
+        $result = getAllArticlesDB($conn);
+
+        // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
+        (isset($result) && is_array($result) && !empty($result))? $execute = true : $msg = '<div class="msg-error"><p>Il n\'y a pas d\'article à afficher</p></div>';            
+    }       
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +38,7 @@
             <div id="main-menu">
                 <?php displayNavigation(); ?>
             </div>
-            <h1>Gérer les articles</h1>
+            <h2 class="title">Gérer les articles</h2>
             <div id="message">
                 <!-- Ici nous affichons les messages éventuels (CODE PHP)-->
             </div>
@@ -29,15 +48,15 @@
                    avec en plus des liens pour modifier afficher, afficher et supprimer chaque article.
                    Vous devez créer une foncion d'affichage
                 -->
+                <?php                  
+                    // Peut-on exécuter cette instruction               
+                    if($execute)
+                    displayArticlesForManager($result);
+                ?>
                                 
             </div>  
             <footer>
-                 <!-- 
-                    Ouvrez une balise php pour lancer la fonction d'affichage 
-                    du footer. Fonction que vous allez écrire dans fct-ui.php
-                    Affichez le nom de l'app sa version sa date de mise à jour
-                    et d'autres choses si vous le souhaitez 
-                -->
+                <?php displayFooter(); ?>
             </footer>     
         </div>
     </div>    

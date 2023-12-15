@@ -57,6 +57,27 @@ function displayArticles($articles) {
 }
 
 /**
+ * Affichage propre des données de la table articles avec un lien vers la page d'édition
+ * 
+ * @param mixed $resultat 
+ * @return void 
+ */
+function displayArticlesForManager($resultats) {
+    // Affichage des données de la table articles
+    foreach ($resultats as $article) {
+        
+        $publication = ($article['active'])? '<span class="circle-published" title="Article publié"></span>' : '<span class="circle-not-published" title="Article non publié"></span>';
+
+        echo '<article>';
+        echo '<h2>' . $publication . ' ' . $article['title'] . '</h2>';
+        //echo '<p>' . $article['content'] . '</p>';
+        echo '<p><a class="btn-manager" href="edit.php?id='.$article['id'].'"> Modifier </a> <a class="btn-manager" href="article.php?id='.$article['id'].'"> Lire </a>  <a class="btn-manager btn-danger" href="manager.php?id='.$article['id'].'&action=deleteArticle"> Supprimer </a></p>';
+        echo '</article>';
+        echo '<hr>';
+    }
+}
+
+/**
  * Affichage du footer
  * 
  * @param string $app_name 

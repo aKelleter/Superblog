@@ -2,7 +2,7 @@
     require_once('settings.php');
     
     $msg = null;
-    $articlesList = null;
+    $result = null;
     $execute = false;
 
     // On vérifie l'objet de connexion $conn
@@ -12,10 +12,10 @@
     }else{
          
         // Va cherche en DB les articles publiés
-         $articlesList = getAllArticlesDB($conn, 1);
+         $result = getAllArticlesDB($conn, 1);
 
          // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
-         (isset($articlesList) && is_array($articlesList))? $execute = true : $msg = '<div class="msg-error"><p>'.$articlesList.'</p></div>';            
+         (isset($result) && is_array($result))? $execute = true : $msg = '<div class="msg-error"><p>'.$result.'</p></div>';            
     }
    
 ?>
@@ -49,11 +49,10 @@
                     <p><a href="article.php?id=xx" class="titre-article">Titre du second article</a></p>
                     <p><a href="article.php?id=xx" class="titre-article">Titre du troisième article</a></p>
                 -->
-                <?php 
-                    // disp_ar($articlesList); 
-                    // Que l'on peut exécuter cette instruction                   
+                <?php               
+                    // Peut-on exécuter cette instruction
                     if($execute)
-                        displayArticles($articlesList);
+                        displayArticles($result);
                 ?>
             </div>  
             <footer>                
