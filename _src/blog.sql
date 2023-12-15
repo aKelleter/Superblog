@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `blog`
 --
+DROP DATABASE IF EXISTS `blog`;
 
 CREATE DATABASE `blog`  
  DEFAULT CHARACTER SET utf8mb4  
