@@ -2,9 +2,11 @@
 
 :root{
     --body-backg-color: rgb(246, 254, 255);
-    --menu-item: rgb(15, 125, 235);
-    --menu-item-hover: rgb(12, 72, 132);
-    --text-error: rgb(217, 12, 12);
+    --menu-item-color: rgb(15, 125, 235);
+    --menu-item-color-hover: rgb(12, 72, 132);
+    --danger-color: rgb(217, 12, 12);
+    --link-color: rgb(1, 125, 248);
+    --published-color: rgb(74, 192, 41);
 
     --border-width: 1px;
 }
@@ -23,12 +25,12 @@ footer {
 }
 
 h2{
-    color: var(--menu-item);
+    color: var(--menu-item-color);
 }
 
 article a{
     text-decoration: none;
-    color: var(--menu-item);
+    color: var(--menu-item-color);
 }
 
 .article-item{
@@ -36,7 +38,7 @@ article a{
 }
 
 .article-item:hover{
-    background-color: var(--menu-item);
+    background-color: var(--menu-item-color);
     color: var(--body-backg-color);
     border-radius: 5px; 
 }
@@ -77,30 +79,32 @@ article a{
 
 .menu a {
     text-decoration: none;
-    border: 1px solid var(--menu-item);
+    border: 1px solid var(--menu-item-color);
     border-radius: 5px;
-    color: var(--menu-item);
+    color: var(--menu-item-color);
     padding: 3px;
     margin-right: 10px;
  }
 
  .menu a:hover {
-    color: var(--menu-item-hover);
-    border: 1px solid var(--menu-item-hover);
-    background-color: var(--menu-item);
+    color: var(--menu-item-color-hover);
+    border: 1px solid var(--menu-item-color-hover);
+    background-color: var(--menu-item-color);
     color: var(--body-backg-color);
     font-weight: 500;
  }
 
  #content{
     display: block;
+    width: 90%;
+    margin: auto;
  }
 
  .msg-error{
     margin: auto;
     text-align: center;
-    color: var(--text-error);
-    border: 1px solid var(--text-error);
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
     border-radius: 5px;
     width: 80%;
  }
@@ -119,7 +123,7 @@ article a{
  
  .circle-published {
     display: inline-block;
-    background: var(--a-color);
+    background: var(--published-color);
     border-radius: 50%;
     width: 15px;
     height: 15px;
@@ -128,7 +132,6 @@ article a{
     border: 1px solid black;
     margin-right: 5px;
     vertical-align: middle;
-
 }
 
 .circle-not-published {
