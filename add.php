@@ -19,7 +19,8 @@
             <div id="main-menu">
                 <?php displayNavigation(); ?>
             </div>
-            <h1>Ajouter un article<h1>
+            <h2 class="title">Ajouter un article</h2>
+            <hr>
             <div id="content">
                 <!-- 
                     Créez ici un formulaire HTML pour ajouter un nouvel article
@@ -28,15 +29,26 @@
                           C'est dans le fichier manager.php que l'on va traiter les donées du formulaire
                         - L'attribut "method" devra contenir "post"                    
                 -->
+                <form action="manager.php" method="post">                    
+                    <div class="form-ctrl">
+                        <label for="title" class="form-ctrl">Titre</label>
+                        <input type="text" class="form-ctrl" id="title" name="title" value="" required>
+                    </div>
+                    <div class="form-ctrl">                                          
+                        <label for="published_article" class="form-ctrl">Status de l'article <small>(publication)</small></label> 
+                        <?php displayFormRadioBtnArticlePublished(false, 'ADD'); ?>                  
+                    </div>   
+                    <div class="form-ctrl">
+                        <label for="content" class="form-ctrl">Contenu</label>
+                        <textarea class="" id="content" name="content" rows="8"></textarea>
+                    </div>
+                    <input type="hidden" id="form" name="form" value="add">
+                    <button type="submit" class="btn-classic">Ajouter</button>
+                </form>
                                 
             </div>  
             <footer>
-                <!-- 
-                    Ouvrez une balise php pour lancer la fonction d'affichage 
-                    du footer. Fonction que vous allez écrire dans fct-ui.php
-                    Affichez le nom de l'app sa version sa date de mise à jour
-                    et d'autres choses si vous le souhaitez 
-                -->
+                <?php displayFooter(); ?>
             </footer>     
         </div>
     </div>    

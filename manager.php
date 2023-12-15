@@ -5,6 +5,11 @@
      * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
      */
 
+    $msg = null;
+    $result = null;
+    $execute = false;
+    $status = null;
+
     // On vérifie l'objet de connexion $conn
     if(!is_object($conn)){            
         $msg = '<div class="msg-error"><p>'.$conn.'</p></div>';
@@ -15,9 +20,23 @@
             (isset($_GET['action']) && !empty($_GET['action'])) && $_GET['action'] == 'deleteArticle')
         {
             $id = $_GET['id'];
-            $status = deleteArticleDB($conn, $id);       
-        }    
-        
+            $status = deleteArticleDB($conn, $id);   
+            
+        // Vérifie met à jour un article    
+        }elseif(isset($_POST['form']) && $_POST['form'] == 'add'){    
+            $datas = $_POST;
+            $status = addArticleDB($conn, $datas);     
+        }     
+             
+        // Traitements des status de retour des fonctions et affichage des messages correspondants
+        if($status) {
+            $msg = '<div class="msg-success">Action effectuée avec succès</div>';
+            header('refresh:2;url=manager.php');
+        }elseif($status === false) {
+            $msg = '<div class="msg-error">Erreur lors de la l\'action</div>';
+            header('refresh:2;url=manager.php');
+        }
+
         // Récupérer tous les articles de la table articles
         $result = getAllArticlesDB($conn);
 
@@ -39,8 +58,10 @@
                 <?php displayNavigation(); ?>
             </div>
             <h2 class="title">Gérer les articles</h2>
+            <hr>
             <div id="message">
-                <!-- Ici nous affichons les messages éventuels (CODE PHP)-->
+                <!-- Ici nous affichons les messages éventuels (CODE PHP) -->
+                <?php if(isset($msg)) echo $msg; ?>
             </div>
             <div id="content">
                 <!-- 
@@ -51,7 +72,7 @@
                 <?php                  
                     // Peut-on exécuter cette instruction               
                     if($execute)
-                    displayArticlesForManager($result);
+                        displayArticlesForManager($result);
                 ?>
                                 
             </div>  

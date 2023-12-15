@@ -71,7 +71,7 @@ function displayArticlesForManager($resultats) {
         echo '<article>';
         echo '<h2>' . $publication . ' ' . $article['title'] . '</h2>';
         //echo '<p>' . $article['content'] . '</p>';
-        echo '<p><a class="btn-manager" href="edit.php?id='.$article['id'].'"> Modifier </a> <a class="btn-manager" href="article.php?id='.$article['id'].'"> Lire </a>  <a class="btn-manager btn-danger" href="manager.php?id='.$article['id'].'&action=deleteArticle"> Supprimer </a></p>';
+        echo '<p><a class="btn-mini" href="edit.php?id='.$article['id'].'"> Modifier </a> <a class="btn-mini" href="article.php?id='.$article['id'].'"> Lire </a>  <a class="btn-mini btn-danger" href="manager.php?id='.$article['id'].'&action=deleteArticle"> Supprimer </a></p>';
         echo '</article>';
         echo '<hr>';
     }
@@ -102,5 +102,45 @@ function displayArticleByID($article) {
     echo '<hr>';
     echo '<p>' . html_entity_decode($article['content']) . '</p>';
     echo '</article>';
+}
+
+/**
+* Retourne le code html des boutons radios indiquant 
+* le status de publication de l'article
+* 
+* @param boolean     $published
+* @return string
+*/
+function displayFormRadioBtnArticlePublished($published, $typeForm = 'ADD')
+{
+   
+    $html = '';
+
+    // Si c'est le formulaire d'ajout d'article
+    if($typeForm == 'ADD'){
+        $html .= '
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" value="1" id="published_article" name="published_article">          
+        </div>
+    ';
+    // Si c'est le formulaire de modification d'article
+    }elseif($typeForm == 'EDIT'){
+
+        if($published){        
+            $html .= '
+            <div class="form-check form-switch">
+                <input class="form-check-input" value="1" type="checkbox" id="published_article" name="published_article" checked>          
+            </div>
+            ';
+        }else{
+            $html .= '
+            <div class="form-check form-switch">
+                <input class="form-check-input" value="1" type="checkbox" id="published_article" name="published_article">        
+            </div>
+            ';
+        }
+    }
+
+    echo $html; 
 }
 
