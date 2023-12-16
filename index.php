@@ -10,10 +10,10 @@
         //die($conn);
         $msg = '<div class="msg-error"><p>'.$conn.'</p></div>';
     }else{
-         
+        
         // Va cherche en DB les articles publiés
          $result = getAllArticlesDB($conn, 1);
-
+         //DEBUG// disp_ar($result);
          // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
          (isset($result) && is_array($result))? $execute = true : $msg = '<div class="msg-error"><p>'.$result.'</p></div>';            
     }

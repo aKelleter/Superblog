@@ -14,15 +14,19 @@
     if(!is_object($conn)){            
         $msg = '<div class="msg-error"><p>'.$conn.'</p></div>';
     }else{
-        
+        // Vérifie met à jour un article
+        if(isset($_POST['form']) && $_POST['form'] == 'update') {
+            $datas = $_POST;
+            $status = updateArticleDB($conn, $datas);     
+
         // Vérifie si on supprime un article
-        if((isset($_GET['id']) && !empty($_GET['id'])) && 
+        }elseif((isset($_GET['id']) && !empty($_GET['id'])) && 
             (isset($_GET['action']) && !empty($_GET['action'])) && $_GET['action'] == 'deleteArticle')
         {
             $id = $_GET['id'];
             $status = deleteArticleDB($conn, $id);   
             
-        // Vérifie met à jour un article    
+        // Vérifie si on ajoute un article    
         }elseif(isset($_POST['form']) && $_POST['form'] == 'add'){    
             $datas = $_POST;
             $status = addArticleDB($conn, $datas);     

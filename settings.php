@@ -8,8 +8,8 @@
     
     // Constantes de l'application
     const APP_NAME = "SuperBlog";
-    const APP_VERSION = 'v0.1.0';
-    const APP_UPDATED = '15-12-2023 16:30';
+    const APP_VERSION = 'v0.3.0';
+    const APP_UPDATED = '16-12-2023 20:45';
     const APP_AUTHOR = 'Vous :)';
 
     // Constante d'activation/désactivation du mode DEBUG

@@ -5,6 +5,8 @@
      * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
      */
 
+     $tinyMCE = true;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +23,7 @@
             </div>
             <h2 class="title">Ajouter un article</h2>
             <hr>
-            <div id="content">
+            <div id="content-add">
                 <!-- 
                     Créez ici un formulaire HTML pour ajouter un nouvel article
                     * Astuces :
@@ -52,5 +54,6 @@
             </footer>     
         </div>
     </div>    
+    <?php displayJSSection($tinyMCE); ?>  
 </body>
 </html>

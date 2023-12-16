@@ -144,3 +144,23 @@ function displayFormRadioBtnArticlePublished($published, $typeForm = 'ADD')
     echo $html; 
 }
 
+/**
+ * Affichage de la section JS
+ * 
+ * @param bool $tinyMCE 
+ * @return void 
+ */
+function displayJSSection($tinyMCE = false)
+{
+    $js = '';
+
+    // Chargement de TinyMCE si nécessaire (paramètre $tinyMCE = true)
+    $js .= ($tinyMCE)? '
+    <script src="vendors/tinymce/tinymce.min.js" referrerpolicy="origin"></script>  
+    <script src="assets/js/conf-tinymce.js"> </script>
+    ' : null;  
+    
+    // Affichage de la chaîne des scripts JS
+    echo $js;
+}
+

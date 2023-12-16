@@ -154,7 +154,7 @@ article a {
     font-weight: 500;
  }
 
- #content {
+    #content, #content-edit, #content-add {
     display: block;
     width: 90%;
     margin: auto;
@@ -189,7 +189,6 @@ article a {
     border: var(--border-width) solid var(--menu-item-color);
     opacity: .25;
  }
-
  
  .circle-published {
     display: inline-block;
