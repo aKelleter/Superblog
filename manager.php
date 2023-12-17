@@ -5,6 +5,12 @@
      * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
      */
 
+    
+    // Redirection vers la page de login si l'utilisateur n'est pas connecté
+    if (!$_SESSION['IDENTIFY']) {
+        header('Location: login.php');
+    }
+    
     $msg = null;
     $result = null;
     $execute = false;
@@ -12,7 +18,7 @@
 
     // On vérifie l'objet de connexion $conn
     if(!is_object($conn)){            
-        $msg = '<div class="msg-error"><p>'.$conn.'</p></div>';
+        $msg = getMessage($conn, 'error');
     }else{
         // Vérifie met à jour un article
         if(isset($_POST['form']) && $_POST['form'] == 'update') {
@@ -34,10 +40,10 @@
              
         // Traitements des status de retour des fonctions et affichage des messages correspondants
         if($status) {
-            $msg = '<div class="msg-success">Action effectuée avec succès</div>';
+            $msg = getMessage('Action effectuée avec succès', 'success');
             header('refresh:2;url=manager.php');
         }elseif($status === false) {
-            $msg = '<div class="msg-error">Erreur lors de la l\'action</div>';
+            $msg = getMessage('Erreur lors de la l\'action', 'error');
             header('refresh:2;url=manager.php');
         }
 
@@ -45,8 +51,8 @@
         $result = getAllArticlesDB($conn);
 
         // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
-        (isset($result) && is_array($result) && !empty($result))? $execute = true : $msg = '<div class="msg-error"><p>Il n\'y a pas d\'article à afficher</p></div>';            
-    }       
+        (isset($result) && is_array($result) && !empty($result))? $execute = true : $msg = getMessage('Il n\'y a pas d\'article à afficher', 'error');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,8 +69,7 @@
             </div>
             <h2 class="title">Gérer les articles</h2>
             <hr>
-            <div id="message">
-                <!-- Ici nous affichons les messages éventuels (CODE PHP) -->
+            <div id="message">              
                 <?php if(isset($msg)) echo $msg; ?>
             </div>
             <div id="content">

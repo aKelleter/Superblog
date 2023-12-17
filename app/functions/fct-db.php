@@ -208,7 +208,7 @@ function deleteArticleDB($conn, $id) {
  */
 function userIdentificationDB($conn, $datas) {
     try{
-        $resultat = null;
+        $user = null;
 
         // Préparation des données avant insertion dans la base de données
         $login = filterInputs($datas['login']);
@@ -221,15 +221,17 @@ function userIdentificationDB($conn, $datas) {
         $req->execute();
 
         // Génère un résultat si il y a correspondance
-        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+        $user = $req->fetch(PDO::FETCH_ASSOC);
 
         // Fermeture connexion
         $req = null;
         $conn = null;
 
-        if((isset($resultat['email']) && $resultat['email'] === $login) && (isset($resultat['passwd']) && $resultat['passwd'] === $pwd))
-            return true;
-        else
+        if((isset($user['email']) && $user['email'] === $login) && (isset($user['passwd']) && $user['passwd'] === $pwd)){
+            // On supprime le mot de passe de l'objet $user
+            $user['passwd'] = null; 
+            return $user;
+        }else
             return false;
         
 

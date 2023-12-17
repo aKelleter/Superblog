@@ -5,7 +5,20 @@
      * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
      */
 
-     $tinyMCE = true;
+    /*
+    // Redirection vers la page de login si l'utilisateur n'est pas connecté
+    if (!$_SESSION['IDENTIFY']) {
+        header('Location: login.php');
+    }
+    */
+
+    $msg = null;
+    $tinyMCE = true;
+    $execute = false;
+ 
+    if(!is_object($conn)){
+        $msg = getMessage($conn, 'error');
+    }
 
 ?>
 <!DOCTYPE html>
@@ -23,6 +36,10 @@
             </div>
             <h2 class="title">Ajouter un article</h2>
             <hr>
+            <div id="message">
+                <!-- Ici nous affichons les messages éventuels (CODE PHP)-->
+                <?php if(isset($msg)) echo $msg; ?>
+            </div>
             <div id="content-add">
                 <!-- 
                     Créez ici un formulaire HTML pour ajouter un nouvel article

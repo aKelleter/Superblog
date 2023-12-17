@@ -8,14 +8,22 @@
     // On vérifie l'objet de connexion $conn
     if(!is_object($conn)){
         //die($conn);
-        $msg = '<div class="msg-error"><p>'.$conn.'</p></div>';
+        //$msg = '<div class="msg-error">'.$conn.'</div>';
+        $msg = getMessage($conn, 'error');
     }else{
         
         // Va cherche en DB les articles publiés
-         $result = getAllArticlesDB($conn, 1);
-         //DEBUG// disp_ar($result);
-         // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
-         (isset($result) && is_array($result))? $execute = true : $msg = '<div class="msg-error"><p>'.$result.'</p></div>';            
+        $result = getAllArticlesDB($conn, 1);
+        //DEBUG// disp_ar($result);
+
+        // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
+        /*
+        if(isset($result) && is_array($result)){
+            $execute = true;
+        }else{
+            $msg = displayMessage($result, 'error');
+        }*/
+        (isset($result) && is_array($result))? $execute = true : $msg = getMessage($result, 'error');            
     }
    
 ?>
