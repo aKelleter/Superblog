@@ -1,18 +1,17 @@
 <?php
+    // Constantes de l'application
+    const APP_NAME = "SuperBlog";
+    const APP_VERSION = 'v0.5.2';
+    const APP_UPDATED = '17-12-2023 16:25';
+    const APP_AUTHOR = 'HAL 9000';
 
     // Ouverture de la session et initialisation de la variable $_SESSION['IDENTIFY']
-    session_name('SuperBlog');
+    session_name(APP_NAME);
     session_start();
     if (!isset($_SESSION['IDENTIFY'])) {
         $_SESSION['IDENTIFY'] = false;
     }
     
-    // Constantes de l'application
-    const APP_NAME = "SuperBlog";
-    const APP_VERSION = 'v0.5.1';
-    const APP_UPDATED = '17-12-2023 15:50';
-    const APP_AUTHOR = 'HAL 9000';
-
     // Constante d'activation/désactivation du mode DEBUG
     const DEBUG = false;
 
