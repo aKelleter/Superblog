@@ -1,11 +1,7 @@
 <?php
     require_once('settings.php');
 
-    /**
-     * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
-     */
-    
-     // Redirection vers la page de gestion si l'utilisateur est connecté
+    // Redirection vers la page de gestion si l'utilisateur est connecté
     if ($_SESSION['IDENTIFY']) {
         header('Location: manager.php');
     }
@@ -13,7 +9,7 @@
     $user = null;
     $connexionSuccessfull = null;
     $msg = null;
-    
+
     // On vérifie l'objet de connexion $conn
     if(!is_object($conn)){
         $msg = getMessage($conn, 'error');
@@ -23,7 +19,7 @@
         if(isset($_POST['form']) && $_POST['form'] == 'login') {
             
             if($_POST['login'] == '' || $_POST['pwd'] == '') {
-                $msg = '<div class="msg-error" role="alert">Veuillez remplir tous les champs</div>';
+                $msg = getMessage('Veuillez remplir tous les champs', 'error');
                 //header('refresh:3;url=login.php');
             }else{
                 $datas = $_POST;
@@ -39,7 +35,7 @@
             $_SESSION['user_email'] = $user['email'];
             header('Location: manager.php');     
         }elseif($connexionSuccessfull === false){
-            $msg = '<div class="msg-error" role="alert">Votre email et/ou votre mot de passe sont erronés</div>';
+            $msg = getMessage('Votre email et/ou votre mot de passe sont erronés', 'error');
             //header('refresh:3;url=login.php');
         }
     } 
@@ -60,17 +56,11 @@
             </div>
             <h2 class="title">S'identifier</h2>            
             <div id="message">
-                <!-- Ici nous affichons les messages éventuels (CODE PHP)-->
+              
                 <?php if(isset($msg)) echo $msg; ?>
             </div>
             <div id="content-login">
-                <!-- 
-                    Créez ici un formulaire HTML s'identifier sur l'application
-                    * Astuces :
-                        - L'attribut "action" de votre balise form devra contenir "login.php"
-                          C'est ici même dans login.php que nous traiterons l'identification
-                        - L'attribut "method" devra contenir "post"                    
-                -->
+               
                 <form class="mt-15" action="login.php" method="post">
                     <div class="form-ctrl">
                         <label for="login" class="form-ctrl">E-mail</label>

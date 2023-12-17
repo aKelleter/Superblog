@@ -1,10 +1,6 @@
 <?php
     require_once('settings.php');
 
-    /**
-     * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
-     */
-    
     // Redirection vers la page de login si l'utilisateur n'est pas connecté
     if (!$_SESSION['IDENTIFY']) {
         header('Location: login.php');
@@ -43,18 +39,11 @@
             </div>
             <h2 class="title">Modifier un article</h2>
             <hr>
-            <div id="message">
-                <!-- Ici nous affichons les messages éventuels (CODE PHP)-->
+            <div id="message">             
                 <?php if(isset($msg)) echo $msg; ?>
             </div>
             <div id="content-edit">
-                <!-- 
-                    Créez ici un formulaire HTML pour modifier le contenu d'un article
-                    * Astuces :
-                        - L'attribut "action" de votre balise form devra contenir "manager.php"
-                          C'est dans le fichier manager.php que l'on va traiter les donées du formulaire
-                        - L'attribut "method" devra contenir "post"                    
-                -->
+               
                 <form action="manager.php" method="post">     
                     <input type="hidden" name="id" value="<?php if(isset($article['id'])) echo $article['id']; else echo ''; ?>">               
                     <div class="form-ctrl">

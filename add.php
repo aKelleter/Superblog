@@ -1,16 +1,11 @@
 <?php
     require_once('settings.php');
 
-    /**
-     * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
-     */
-
     // Redirection vers la page de login si l'utilisateur n'est pas connecté
     if (!$_SESSION['IDENTIFY']) {
         header('Location: login.php');
     }
-    
-
+  
     $msg = null;
     $tinyMCE = true;
     $execute = false;
@@ -35,18 +30,11 @@
             </div>
             <h2 class="title">Ajouter un article</h2>
             <hr>
-            <div id="message">
-                <!-- Ici nous affichons les messages éventuels (CODE PHP)-->
+            <div id="message">              
                 <?php if(isset($msg)) echo $msg; ?>
             </div>
             <div id="content-add">
-                <!-- 
-                    Créez ici un formulaire HTML pour ajouter un nouvel article
-                    * Astuces :
-                        - L'attribut "action" de votre balise form devra contenir "manager.php"
-                          C'est dans le fichier manager.php que l'on va traiter les donées du formulaire
-                        - L'attribut "method" devra contenir "post"                    
-                -->
+              
                 <form action="manager.php" method="post">                    
                     <div class="form-ctrl">
                         <label for="title" class="form-ctrl">Titre</label>

@@ -1,10 +1,6 @@
 <?php
     require_once('settings.php');
 
-    /**
-     * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
-     */
-
     $msg = null;
     $result = null;
     $execute = false;
@@ -16,18 +12,18 @@
 
         // On vérifie l'objet de connexion $conn
         if(!is_object($conn)){            
-            $msg = '<div class="msg-error"><p>'.$conn.'</p></div>';
+            $msg = getMessage($conn, 'error');
         }else{
             
              // Récupérer l'article spécifié par l'ID
             $result = getArticleByIDDB($conn, $id);
 
             // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
-            (isset($result) && is_array($result) && !empty($result))? $execute = true : $msg = '<div class="msg-error"><p>Il n\'y a pas d\'article à afficher</p></div>';            
+            (isset($result) && is_array($result) && !empty($result))? $execute = true : $msg = getMessage('Il n\'y a pas d\'article à afficher', 'error');
         }       
         
     }else{
-        $msg = '<div class="alert alert-danger text-center" role="alert">Il n\'y a pas d\'article à afficher</div>';
+        $msg = getMessage('Il n\'y a pas d\'article à afficher', 'success');
     }    
 
 ?>
@@ -44,18 +40,13 @@
             <div id="main-menu">
                 <?php displayNavigation(); ?>
             </div>            
-            <div id="message">
-                <!-- Ici nous affichons les messages éventuels (CODE PHP) -->
+            <div id="message">              
                 <?php if(isset($msg)) echo $msg; ?>
             </div>
             <div id="content">
-                <!-- 
-                      Vous devez créer une fonction d'affichage pour afficher l'article:
-                      Son titre et son contenu
-                -->
-                
+              
                 <?php 
-                   // Peut-on exécuter cette instruction
+                   // Peut-on exécuter l'affichage de l'article
                    if($execute)
                        displayArticleByID($result); 
                 ?>

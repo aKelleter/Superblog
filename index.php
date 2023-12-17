@@ -58,7 +58,7 @@
                     <p><a href="article.php?id=xx" class="titre-article">Titre du troisième article</a></p>
                 -->
                 <?php               
-                    // Peut-on exécuter cette instruction
+                    // Peut-on exécuter l'affichage des articles
                     if($execute)
                         displayArticles($result);
                 ?>
