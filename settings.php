@@ -6,7 +6,7 @@
     const APP_AUTHOR = 'HAL 9000';
 
     // Ouverture de la session et initialisation de la variable $_SESSION['IDENTIFY']
-    session_name(APP_NAME);
+    session_name(APP_NAME.'_SESSION');
     session_start();
     if (!isset($_SESSION['IDENTIFY'])) {
         $_SESSION['IDENTIFY'] = false;
