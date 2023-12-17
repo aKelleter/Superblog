@@ -5,12 +5,11 @@
      * ICI VOUS ECRIVEZ LE CODE PHP QUI GERE LA LOGIQUE ET LES DONNEES DE l'APPLICATION
      */
 
-    /*
     // Redirection vers la page de login si l'utilisateur n'est pas connecté
     if (!$_SESSION['IDENTIFY']) {
         header('Location: login.php');
     }
-    */
+    
 
     $msg = null;
     $tinyMCE = true;
