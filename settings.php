@@ -1,6 +1,7 @@
 <?php
 
     // Ouverture de la session et initialisation de la variable $_SESSION['IDENTIFY']
+    session_name('SuperBlog');
     session_start();
     if (!isset($_SESSION['IDENTIFY'])) {
         $_SESSION['IDENTIFY'] = false;
