@@ -1,8 +1,8 @@
 <?php
     // Constantes de l'application
     const APP_NAME = "SuperBlog";
-    const APP_VERSION = 'v0.6.0';
-    const APP_UPDATED = '17-12-2023 17:25';
+    const APP_VERSION = 'v0.7.0';
+    const APP_UPDATED = '18-12-2023 16:25';
     const APP_AUTHOR = 'HAL 9000';
 
     // Ouverture de la session et initialisation de la variable $_SESSION['IDENTIFY']

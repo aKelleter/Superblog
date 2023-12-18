@@ -23,9 +23,10 @@
                 //header('refresh:3;url=login.php');
             }else{
                 $datas = $_POST;
-                $user = userIdentificationDB($conn, $datas);            
-                $connexionSuccessfull = true;
-                //DEBUG// disp_ar($user, 'USER', 'VD');   die();
+                //$user = userIdentificationDB($conn, $datas);
+                $user = userIdentificationWithHashPwdDB($conn, $datas);            
+                (!empty($user['email']))? $connexionSuccessfull = true : $connexionSuccessfull = false;
+                //DEBUG//disp_ar($user, 'USER', 'VD');   die();
             }
         }
 
