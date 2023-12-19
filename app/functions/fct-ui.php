@@ -25,9 +25,7 @@ function displayNavigation(){
         $navigation .= '
         <nav>
             <ul class="menu">
-                <li><a href="index.php">Home</a></li>
-                <!--<li><a href="manager.php">Gérer</a></li>
-                <li><a href="add.php">Ajouter</a></li>-->
+                <li><a href="index.php">Home</a></li>                
                 <li><a href="login.php">Se connecter</a></li>                        
             </ul>
         <nav>';
@@ -128,6 +126,7 @@ function displayArticleByID($article) {
 * le status de publication de l'article
 * 
 * @param boolean     $published
+* @param string      $typeForm  (ADD ou EDIT)
 * @return string
 */
 function displayFormRadioBtnArticlePublished($published, $typeForm = 'ADD')

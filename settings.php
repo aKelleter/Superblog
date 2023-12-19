@@ -1,22 +1,37 @@
 <?php
     // Constantes de l'application
     const APP_NAME = "SuperBlog";
-    const APP_VERSION = 'v0.7.0';
-    const APP_UPDATED = '18-12-2023 16:25';
+    const APP_VERSION = 'v0.8.0';
+    const APP_UPDATED = '19-12-2023 16:30';
     const APP_AUTHOR = 'HAL 9000';
-
-    // Ouverture de la session et initialisation de la variable $_SESSION['IDENTIFY']
-    session_name(APP_NAME.'_SESSION');
-    session_start();
-    if (!isset($_SESSION['IDENTIFY'])) {
-        $_SESSION['IDENTIFY'] = false;
-    }
-    
+     
     // Constante d'activation/désactivation du mode DEBUG
     const DEBUG = false;
 
     // Charge les credentials de connexion à la DB
     require_once('conf/conf-db.php');
+
+   // Configuration de la session / du cookie de session
+   $name = session_name(str_replace(' ', '', APP_NAME).'_session'); 
+   $domain = $_SERVER['HTTP_HOST'];
+   $time = time() + 3600; // 3600 sec = 1 heure
+
+   setcookie($name, APP_NAME, [
+       'expires' => $time,
+       'path' => '/',
+       'domain' => $domain,
+       'secure' => true,
+       'httponly' => true,
+       'samesite' => 'strict',
+   ]);
+
+   // Lancement de la session
+   session_start();
+
+    // Initialisation de la variable $_SESSION['IDENTIFY'] à false (pas d'utilisateur connecté)    
+    if (!isset($_SESSION['IDENTIFY'])) {
+        $_SESSION['IDENTIFY'] = false;
+    }
 
     // Chargement des fichiers de fonctions
     require_once('app/functions/fct-db.php');
