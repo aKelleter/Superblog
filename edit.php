@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-ctrl">                                          
                         <label for="published_article" class="form-ctrl">Status de l'article <small>(publication)</small></label> 
-                        <?php if(isset($article['content'])) displayFormRadioBtnArticlePublished($article['active'], 'EDIT'); else echo ''; ?>                  
+                        <?php if(isset($article['active'])) displayFormRadioBtnArticlePublished($article['active'], 'EDIT'); ?>                  
                     </div>   
                     <div class="form-ctrl">
                         <label for="content" class="form-ctrl">Contenu</label>

@@ -15,29 +15,40 @@
         $msg = getMessage($conn, 'error');
     }else{
 
-        // Vérifie si on effectue une identification
+        // Vérifie si on reçoit le formumaire d'identification
         if(isset($_POST['form']) && $_POST['form'] == 'login') {
             
+            // Vérifie si les champs sont vides
             if($_POST['login'] == '' || $_POST['pwd'] == '') {
-                $msg = getMessage('Veuillez remplir tous les champs', 'error');
-                //header('refresh:3;url=login.php');
+                $msg = getMessage('Veuillez remplir tous les champs', 'error');               
             }else{
+
+                // On récupère les données du formulaire
                 $datas = $_POST;
-                //$user = userIdentificationDB($conn, $datas);
+
+                // Appel de la fonction d'identification
+
+                // Avec mot de passe en clair 
+                // $user = userIdentificationDB($conn, $datas);
+
+                // Avec mot de passe hashé 
                 $user = userIdentificationWithHashPwdDB($conn, $datas);            
+
+                // On vérifie si on a une adresse email dans le tableau $user, si c'est le cas on est connecté
                 (!empty($user['email']))? $connexionSuccessfull = true : $connexionSuccessfull = false;
-                //DEBUG//disp_ar($user, 'USER', 'VD');   die();
+                
             }
         }
 
-        // Traitement en fonction du retour de la fonction identificationDB()  
+        // Si on est connecté, on initialise les variables de session et on redirige vers la page de gestion
         if($connexionSuccessfull === true) {
             $_SESSION['IDENTIFY'] = true;
             $_SESSION['user_email'] = $user['email'];
             header('Location: manager.php');     
+        // Dans le cas contraire on affiche un message d'erreur, il y a eu une erreur d'identification
         }elseif($connexionSuccessfull === false){
             $msg = getMessage('Votre email et/ou votre mot de passe sont erronés', 'error');
-            //header('refresh:3;url=login.php');
+            
         }
     } 
 
@@ -56,8 +67,7 @@
                 <?php displayNavigation(); ?>
             </div>
             <h2 class="title">S'identifier</h2>            
-            <div id="message">
-              
+            <div id="message">              
                 <?php if(isset($msg)) echo $msg; ?>
             </div>
             <div id="content-login">

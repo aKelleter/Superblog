@@ -46,7 +46,7 @@
         $result = getAllArticlesDB($conn);
 
         // On vérifie le retour de la fonction : si c'est un tableau, on continue, sinon on affiche le message d'erreur
-        (isset($result) && is_array($result) && !empty($result))? $execute = true : $msg = getMessage('Il n\'y a pas d\'article à afficher', 'error');
+        (isset($result) && is_array($result) && !empty($result))? $execute = true : $msg = getMessage('Il n\'y a pas d\'article à afficher actuellement', 'error');
     }
 ?>
 <!DOCTYPE html>
