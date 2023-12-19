@@ -86,7 +86,11 @@ function displayArticlesForManager($resultats) {
         echo '<article>';
         echo '<h2>' . $publication . ' ' . $article['title'] . '</h2>';
         //echo '<p>' . $article['content'] . '</p>';
-        echo '<p><a class="btn-mini" href="edit.php?id='.$article['id'].'"> Modifier </a> <a class="btn-mini" href="article.php?id='.$article['id'].'"> Lire </a>  <a class="btn-mini btn-danger" href="manager.php?id='.$article['id'].'&action=deleteArticle"> Supprimer </a></p>';
+        echo '<p>
+        <a class="btn-mini" href="edit.php?id='.$article['id'].'"> Modifier </a> 
+        <a class="btn-mini" href="article.php?id='.$article['id'].'"> Lire </a>  
+        <a class="btn-mini btn-danger" href="manager.php?id='.$article['id'].'&action=deleteArticle"> Supprimer </a>
+        </p>';
         echo '</article>';
         echo '<hr>';
     }
