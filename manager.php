@@ -56,30 +56,29 @@
 </head>
 <body>
     <div class="container">
-            <div id="header-logo">
-                <h1><?php echo APP_NAME; ?></h1>
-            </div>
-            <div id="main-menu">
-                <?php displayNavigation(); ?>
-            </div>
-            <h2 class="title">Gérer les articles</h2>
-            <hr>
-            <div id="message">              
-                <?php if(isset($msg)) echo $msg; ?>
-            </div>
-            <div id="content">
-               
-                <?php                  
-                    // Peut-on exécuter la liste des articles pour le manager             
-                    if($execute)
-                        displayArticlesForManager($result);
-                ?>
-                                
-            </div>  
-            <footer>
-                <?php displayFooter(); ?>
-            </footer>     
+        <div id="header-logo">
+            <h1><?php echo APP_NAME; ?></h1>
         </div>
+        <div id="main-menu">
+            <?php displayNavigation(); ?>
+        </div>
+        <h2 class="title">Gérer les articles</h2>
+        <hr>
+        <div id="message">              
+            <?php if(isset($msg)) echo $msg; ?>
+        </div>
+        <div id="content">
+            
+            <?php                  
+                // Peut-on exécuter la liste des articles pour le manager             
+                if($execute)
+                    displayArticlesForManager($result);
+            ?>
+                            
+        </div>  
+        <footer>
+            <?php displayFooter(); ?>
+        </footer>                         
     </div>    
 </body>
 </html>

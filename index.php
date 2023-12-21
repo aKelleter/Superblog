@@ -1,6 +1,6 @@
 <?php
     require_once('settings.php');
-    
+       
     $msg = null;
     $result = null;
     $execute = false;
@@ -26,26 +26,25 @@
 </head>
 <body>
     <div class="container">
-            <div id="header-logo">
-                <h1><?php echo APP_NAME; ?></h1>
-            </div>
-            <div id="main-menu">
-                <?php displayNavigation(); ?>
-            </div>
-            <div id="message">              
-                <?php if(isset($msg)) echo $msg; ?>
-            </div>
-            <div id="content">              
-                <?php               
-                    // Peut-on exécuter l'affichage des articles
-                    if($execute)
-                        displayArticles($result);
-                ?>
-            </div>  
-            <footer>                              
-                <?php displayFooter(); ?>
-            </footer>     
+        <div id="header-logo">
+            <h1><?php echo APP_NAME; ?></h1>
         </div>
+        <div id="main-menu">
+            <?php displayNavigation(); ?>
+        </div>
+        <div id="message">              
+            <?php if(isset($msg)) echo $msg; ?>
+        </div>
+        <div id="content">              
+            <?php               
+                // Peut-on exécuter l'affichage des articles
+                if($execute)
+                    displayArticles($result);
+            ?>
+        </div>  
+        <footer>                              
+            <?php displayFooter(); ?>
+        </footer>             
     </div>    
 </body>
 </html>
