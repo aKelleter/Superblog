@@ -12,9 +12,16 @@
         
         // Va cherche en DB les articles publiés
         $result = getAllArticlesDB($conn, 1);
-        //DEBUG// disp_ar($result);
+        //DEBUG//disp_ar($result);
 
         // Vérifie si le résultat est un tableau dans le cas contraire on affiche le message d'erreur retourné par la fonction
+        /*
+        if(isset($result) && is_array($result)){
+            $execute = true;
+        }else{
+            $msg = getMessage($result, 'error');
+        }
+        */
         (isset($result) && is_array($result))? $execute = true : $msg = getMessage($result, 'error');            
     }
    

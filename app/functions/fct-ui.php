@@ -64,7 +64,8 @@ function displayHeadSection($title = APP_NAME){
  * @return void 
  */
 function displayArticles($articles) {
-    foreach ($articles as $article) {
+    foreach ($articles as $article)
+    {
         echo '<article><a href="article.php?id='.$article['id'].'" title="Lire l\'article"><h2 class="article-item">' . $article['title'] . '</h2></a></article>';
         echo '<hr>';
     }

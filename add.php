@@ -8,10 +8,6 @@
   
     $msg = null;
     $tinyMCE = true;
- 
-    if(!is_object($conn)){
-        $msg = getMessage($conn, 'error');
-    }
 
 ?>
 <!DOCTYPE html>

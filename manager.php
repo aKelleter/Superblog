@@ -5,6 +5,8 @@
     if (!$_SESSION['IDENTIFY']) {
         header('Location: login.php');
     }
+
+    //disp_ar($_POST); die();
     
     $msg = null;
     $result = null;
@@ -15,6 +17,7 @@
     if(!is_object($conn)){            
         $msg = getMessage($conn, 'error');
     }else{
+
         // Vérifie met à jour un article
         if(isset($_POST['form']) && $_POST['form'] == 'update') {
             $datas = $_POST;
