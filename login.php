@@ -29,10 +29,10 @@
                 // Appel de la fonction d'identification
 
                 // Avec mot de passe en clair 
-                // $user = userIdentificationDB($conn, $datas);
+                 $user = userIdentificationDB($conn, $datas);
 
                 // Avec mot de passe hashé 
-                $user = userIdentificationWithHashPwdDB($conn, $datas);            
+                // $user = userIdentificationWithHashPwdDB($conn, $datas);            
 
                 // On vérifie si on a une adresse email dans le tableau $user, si c'est le cas on est connecté
                 (!empty($user['email']))? $connexionSuccessfull = true : $connexionSuccessfull = false;
