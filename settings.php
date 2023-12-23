@@ -1,8 +1,8 @@
 <?php
     // Constantes de l'application
     const APP_NAME = "SuperBlog";
-    const APP_VERSION = 'v0.8.0';
-    const APP_UPDATED = '19-12-2023 16:30';
+    const APP_VERSION = 'v0.8.1';
+    const APP_UPDATED = '20-12-2023 16:45';
     const APP_AUTHOR = 'HAL 9000';
      
     // Constante d'activation/désactivation du mode DEBUG
@@ -20,7 +20,7 @@
        'expires' => $time,
        'path' => '/',
        'domain' => $domain,
-       'secure' => true,
+       'secure' => false,
        'httponly' => true,
        'samesite' => 'strict',
    ]);
